@@ -8,14 +8,9 @@ const sumAll = function(startInt, endInt) {
     ) {
       return "ERROR";
     }
-    if (startInt > endInt){
-       let temp = startInt;
-       startInt = endInt;
-       endInt = temp; 
-    }
+    if (startInt > endInt)[startInt, endInt] = [endInt, startInt];
 
-    
-    sumResult = 0;
+    let sumResult = 0;
     for (let i= startInt; i <= endInt; i++){
         sumResult += i;
     }
