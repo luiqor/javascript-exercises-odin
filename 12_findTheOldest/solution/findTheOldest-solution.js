@@ -1,15 +1,12 @@
-const findTheOldest = function (originalArray) {
-  return originalArray
-    .filter((element) => typeof element === "object")
-    .reduce((oldest, current) => {
-      const oldestAge = oldest.death
-        ? oldest.death - oldest.birth
-        : new Date().getFullYear() - oldest.birth;
-      const currentAge = current.death
-        ? current.death - current.birth
-        : new Date().getFullYear() - current.birth;
-      return oldestAge < currentAge ? current : oldest;
-    });
+const findTheOldest = function (array) {
+  return array.reduce((oldest, currentPerson) => {
+    const oldestAge = getAge(oldest.yearOfBirth, oldest.yearOfDeath);
+    const currentAge = getAge(
+      currentPerson.yearOfBirth,
+      currentPerson.yearOfDeath
+    );
+    return oldestAge < currentAge ? currentPerson : oldest;
+  });
 };
 
 const getAge = function (birth, death) {
